@@ -1,0 +1,9 @@
+.git/
+.gitignore
+.DS_Store
+.jpmignore
+node_modules/
+app/
+.babelrc
+manifest.json
+*.xpi
