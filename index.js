@@ -19,24 +19,4 @@ function startListening(worker_listen){
       worker_listen.port.emit("bookmarks", item);
     });
   });
-
-  worker_listen.port.on("getFavicon", function(url){
-    var img_id = url;
-    console.log(img_id);
-    let { getFavicon } = require("sdk/places/favicon");
-    getFavicon(url).then(function(favicon_url){
-      console.log("-----"+img_id+"-----");
-      worker_listen.port.emit("favicon", favicon_url, img_id);
-    }).catch(function(error){
-      console.log(error);
-      favicon_url = self.data.url("img/default.png");
-      worker_listen.port.emit("favicon", favicon_url, img_id);
-    })
-  });
 }
-
-// chrome.bookmarks.getSubTree('0', function(bookmarks){
-//   console.log(bookmarks);
-//   // ReactDOM.render(<ListView bookmarks={bookmarks} />, document.getElementById('app'));
-// });
-

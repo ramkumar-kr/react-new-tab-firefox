@@ -1,15 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-// var fetchFavicon = require('@meltwater/fetch-favicon').fetchFavicon
 
 var ListView = React.createClass({
     render: function() {
         var bks = this.props.bookmarks;
-        console.log(bks);
         var items = (bks.map(function(b) {
-            console.log(b);
             if(b.url != undefined){
-                return (<div className='col-xs-4 col-sm-3 col-md-2 col-lg-2' style={{paddingTop: '1%', paddingBottom: '1%' }}><Bookmark title={b.title} url={b.url} /></div>);
+                return (<div className='col-xs-4 col-sm-3 col-md-2 col-lg-2' key={b.title} style={{paddingTop: '1%', paddingBottom: '1%' }}>
+                            <Bookmark title={b.title} url={b.url} />
+                        </div>);
             }
         }));
     

@@ -5,6 +5,12 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 });
 
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CopyWebpackPluginConfig = new CopyWebpackPlugin([
+    {
+       from: __dirname + '/app/css', to: __dirname + '/data/css' 
+    }
+]);
 
 module.exports = {
     entry: [
@@ -19,5 +25,5 @@ module.exports = {
        {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
     ]
   },
-  plugins: [HtmlWebpackPluginConfig] 
+  plugins: [HtmlWebpackPluginConfig, CopyWebpackPluginConfig]
 }
