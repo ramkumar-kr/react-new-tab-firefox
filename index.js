@@ -20,3 +20,9 @@ function startListening(worker_listen){
     });
   });
 }
+
+function unload(reason) {
+  ntp.NewTabURL.reset();
+}
+
+exports.onUnload = unload;
