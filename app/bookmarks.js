@@ -11,7 +11,7 @@ var ListView = React.createClass({
                         </div>);
             }
         }));
-    
+
         return (<div className=''> {items} </div>);
     }
 });
@@ -24,12 +24,12 @@ var Bookmark = React.createClass({
                     <p style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'no-wrap'}}>{this.props.title}</p>
                 </a>
         );
-    } 
+    }
 });
 
 var Favicon = React.createClass({
     render: function () {
-        var url = "https://icons.better-idea.org/icon?size=64&url=" + this.props.url;
+        var url = "https://icon-fetcher-go.herokuapp.com/icon?size=64&url=" + this.props.url;
         return (
                 <span>
                 <img src={url} id={url}  width="128" height="128" className="img-thumbnail"/></span>
