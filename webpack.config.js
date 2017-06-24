@@ -1,14 +1,17 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
-    filename: __dirname + '/data/index.html',
+    filename: __dirname + '/dist/index.html',
     inject: 'body'
 });
 
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CopyWebpackPluginConfig = new CopyWebpackPlugin([
     {
-       from: __dirname + '/app/css', to: __dirname + '/data/css' 
+       from: __dirname + '/app/css', to: __dirname + '/dist/css' 
+    },
+    {
+        from: __dirname + '/app/manifest.json', to: __dirname + '/dist/manifest.json'
     }
 ]);
 

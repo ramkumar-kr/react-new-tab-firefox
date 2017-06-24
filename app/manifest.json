@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "React new tab",
+  "version": "0.0.5",
+  "author": "Ramkumar K R",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }, 
+  "description":"A Fast and Light weight new tab",
+  "permissions": [
+    "bookmarks"
+  ]
+}

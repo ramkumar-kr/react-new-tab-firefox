@@ -1,25 +1,14 @@
 {
   "title": "React New Tab",
   "name": "react-new-tab-firefox",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "New tab extension built using react",
-  "main": "index.js",
   "author": "Ramkumar K R",
   "scripts": {
-    "xpi": "webpack -p && jpm xpi",
-    "test": "webpack -p && jpm run"
-  },
-  "engines": {
-    "firefox": ">=38.0a1",
-    "fennec": ">=38.0a1"
+    "xpi": "webpack -p && web-ext build -s ./data",
+    "test": "webpack -p && web-ext run"
   },
   "license": "MIT",
-  "keywords": [
-    "jetpack"
-  ],
-  "permissions": {
-    "multiprocess": true
-  },
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
