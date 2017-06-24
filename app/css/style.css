@@ -1,0 +1,53 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-gap: 80px;
+  grid-auto-rows: minmax(100px, 120px);
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+.one {  
+  margin: auto;
+  display: block;
+  max-width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  outline: 0
+}
+
+button {
+  background: none;
+  border: none;
+  max-width: 150px;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: #337ab7;
+}
+a:hover {
+  color: #337ab7;
+
+}
+
+a:visited {
+  color: #337ab7;
+}
+
+.thumbnail {
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 0;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+}

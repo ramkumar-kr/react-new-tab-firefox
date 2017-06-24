@@ -5,21 +5,22 @@ var ListView = React.createClass({
     render: function () {
         var bks = this.props.bookmarks;
         var items = (bks.map(function (b, i) {
-                       return (<div key={b.id} className='col-xs-4 col-sm-3 col-md-2 col-lg-2' key={b.title} style={{ paddingTop: '1%', paddingBottom: '1%' }}>
+                       return (<div key={b.id} key={b.title} className='one'>
                 <Bookmark title={b.title} url={b.url} />
             </div>);
         }));
 
-        return (<div className='row'> {items} </div>);
+        return (<div className='grid'> {items} </div>);
     }
 });
 
 var Bookmark = React.createClass({
     render: function () {
         return (
-            <a href={this.props.url} className='btn btn-block'>
+            <a href={this.props.url}>
+                
                 <Favicon url={this.props.url} />
-                <p style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'no-wrap' }}>{this.props.title}</p>
+                <p className='text'>{this.props.title}</p>
             </a>
         );
     }
@@ -30,7 +31,7 @@ var Favicon = React.createClass({
         var url = "https://icon-fetcher-go.herokuapp.com/icon?size=64&url=" + this.props.url;
         return (
             <span>
-                <img src={url} id={url} width="128" height="128" className="img-thumbnail" />
+                <img src={url} id={url} width="128" height="128" className="thumbnail" />
 			</span>
 		);
 	}
@@ -65,13 +66,9 @@ function flatten(ary) {
 
 function getAllBookmarks(bookmarkTree) {
     var bookmarks = [];
-    console.log(bookmarkTree);
     for (var i = 0; i < bookmarkTree.length; i++) {
         var element = bookmarkTree[i];
-        console.log(element);
-		console.log("------------");
         if ((element.url != undefined) && (element.url.startsWith("http"))) {
-			console.log(element.url.startsWith("http"));
             bookmarks.push(element);
         }
         else {
