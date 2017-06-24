@@ -5,7 +5,7 @@
   "description": "New tab extension built using react",
   "author": "Ramkumar K R",
   "scripts": {
-    "xpi": "webpack -p && web-ext build -s ./data",
+    "xpi": "webpack -p && web-ext build -s ./dist",
     "test": "webpack -p && web-ext run"
   },
   "license": "MIT",

@@ -20,7 +20,7 @@ module.exports = {
         './app/bookmarks.js'
     ],
     output: {
-        path: __dirname + '/data',
+        path: __dirname + '/dist',
         filename: 'bookmarks.js'
     },
     module: {
