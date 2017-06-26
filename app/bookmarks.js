@@ -41,13 +41,11 @@ var getSubTree = browser.bookmarks.getSubTree("toolbar_____");
 
 getSubTree.then(function (bookmarkTree) {
     var flattened_bookmarks = getFlatBookmarks(bookmarkTree);
-    console.log(flattened_bookmarks);
     ReactDOM.render(<ListView bookmarks={flattened_bookmarks} />, document.getElementById('app'));
 });
 
 function getFlatBookmarks(bookmarkTree) {
     var bookmarks = getAllBookmarks(bookmarkTree);
-    console.log(bookmarks);
     var flattened_bookmarks = flatten(bookmarks);
     return flattened_bookmarks;
 }
