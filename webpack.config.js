@@ -13,8 +13,8 @@ var UglifyJSPluginConfig = new UglifyJSPlugin({
     compress: {
         warnings: false,
         pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
+        unsafe: false,
+        unsafe_comps: false,
         screw_ie8: true
     }
 })
