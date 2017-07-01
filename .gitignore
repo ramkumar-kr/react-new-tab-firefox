@@ -1,3 +1,4 @@
 node_modules/*
 dist/
 *.xpi
+web-ext-artifacts/
