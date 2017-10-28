@@ -1,4 +1,4 @@
-#React New Tab
+# React New Tab
 New tab extension built using react
 
 ## Steps to build locally
