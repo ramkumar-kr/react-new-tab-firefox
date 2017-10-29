@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <meta http-equiv="Cache-control" content="public">
-  <head>
-    <!--<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class = 'container' id = 'options'>
-      <form id="styleForm" action="#">
-        <h2>Appearance</h2>
-        <label for="reactCss">
-          Please Note: This CSS will be added as a style tag in the head section of the document.
-        </label>
-        <textarea name="reactCss" id="reactCss" rows="10" cols="80" placeholder="Enter your Custom CSS here."></textarea>
-        <input type="submit" title="Update" value="Update"/>
-      </form>
-      <p>To use pre-defined templates, please visit this <a href="https://github.com/ramkumar-kr/react-new-tab-firefox/blob/master/TEMPLATES.md" >link</a>.</p>
-    </div>
-  </body>
+<meta http-equiv="Cache-control" content="public">
+
+<head>
+  <!--<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+  <title>Preferences - React new tab</title>
+  
+</head>
+
+<body>
+  <h1>Preferences - React new tab</h1>
+
+  <h2>Appearance</h2>
+  <form id="styleForm" action="#" >
+    <textarea name="reactCss" id="reactCss" rows="28" cols="80" placeholder="Enter your Custom CSS here."></textarea>
+  </form>
+  <button type="submit" form="styleForm" value="submit" class="default">Update</button>
+  <p>Please Note: This CSS will be added as a style tag in the head section of the document.
+    <br/> To use pre-defined templates, please visit this
+    <a href="https://github.com/ramkumar-kr/react-new-tab-firefox/blob/master/TEMPLATES.md">link</a>.</p>
+</body>
+
 </html>
