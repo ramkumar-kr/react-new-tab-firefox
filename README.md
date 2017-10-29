@@ -1,5 +1,8 @@
-#React New Tab
+# React New Tab
 New tab extension built using react
+
+## What's new
+* **Customization** - It is possible to now add user defined CSS and customize the extension
 
 ## Steps to build locally
 * Install web-ext (`sudo npm install -g web-ext`)
@@ -11,4 +14,4 @@ New tab extension built using react
 ## Known issues
 * No support for folders - All bookmarks are shown instead of having a nested structure.
 * No test cases - Need to write tests
-* No customization 
+* ~~No customization~~ 
