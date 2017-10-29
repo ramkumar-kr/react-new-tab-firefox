@@ -1,21 +1,19 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-var ListView = React.createClass({
-    render: function () {
+class ListView extends Component {
+    render() {
         var bks = this.props.bookmarks;
         var items = (bks.map(function (b, i) {
                        return (<div key={b.id} key={b.title} className='one'>
                 <Bookmark title={b.title} url={b.url} />
             </div>);
         }));
-
         return (<div className='grid'> {items} </div>);
     }
-});
-
-var Bookmark = React.createClass({
-    render: function () {
+}
+class Bookmark extends Component {
+    render() {
         return (
             <a href={this.props.url}>
                 
@@ -24,24 +22,28 @@ var Bookmark = React.createClass({
             </a>
         );
     }
-});
+}
 
-var Favicon = React.createClass({
-    render: function () {
+class Favicon extends Component {
+    render() {
         var url = "https://icon-fetcher-go.herokuapp.com/icon?size=64&url=" + this.props.url;
         return (
             <span>
                 <img src={url} id={url} width="128" height="128" className="thumbnail" />
 			</span>
 		);
-	}
-});
+    }
+}
 
-var getSubTree = browser.bookmarks.getSubTree("toolbar_____");
-
-getSubTree.then(function (bookmarkTree) {
-    var flattened_bookmarks = getFlatBookmarks(bookmarkTree);
-    ReactDOM.render(<ListView bookmarks={flattened_bookmarks} />, document.getElementById('app'));
+var css = browser.storage.local.get("style").then((css) => { 
+    var getSubTree = browser.bookmarks.getSubTree("toolbar_____");
+    getSubTree.then(function (bookmarkTree) {
+        var flattened_bookmarks = getFlatBookmarks(bookmarkTree);
+        if (css.style != undefined) {
+            ReactDOM.render(css.style, document.getElementById('style'));   
+        }
+        ReactDOM.render(<ListView bookmarks={flattened_bookmarks} />, document.getElementById('app'));
+    }); 
 });
 
 function getFlatBookmarks(bookmarkTree) {

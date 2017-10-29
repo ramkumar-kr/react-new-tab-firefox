@@ -1,9 +1,21 @@
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+var NewTabHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
     filename: __dirname + '/dist/index.html',
     inject: 'body',
+    chunks: ['bookmarks'],
+    minify: {
+        collapseWhitespace: true,
+        removeComments: true
+    }
+});
+
+var OptionsHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+    template: __dirname + '/app/options.html',
+    filename: __dirname + '/dist/options.html',
+    inject: 'body',
+    chunks: ['options'],
     minify: {
         collapseWhitespace: true,
         removeComments: true
@@ -30,17 +42,21 @@ var CopyWebpackPluginConfig = new CopyWebpackPlugin([
 ]);
 
 module.exports = {
-    entry: [
-        './app/bookmarks.js'
-    ],
+    node: {
+        fs: 'empty'
+    },
+    entry: {
+        bookmarks: "./app/bookmarks.js",
+        options: "./app/options.js"
+    },
     output: {
         path: __dirname + '/dist',
-        filename: 'bookmarks.js'
+        filename: '[name].js'
     },
     module: {
     loaders: [
        {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
     ]
   },
-  plugins: [HtmlWebpackPluginConfig, CopyWebpackPluginConfig, UglifyJSPluginConfig]
+  plugins: [NewTabHtmlWebpackPluginConfig, OptionsHtmlWebpackPluginConfig, CopyWebpackPluginConfig, UglifyJSPluginConfig]
 }
