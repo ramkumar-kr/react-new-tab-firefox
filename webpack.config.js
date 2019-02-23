@@ -1,4 +1,3 @@
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var NewTabHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
@@ -21,15 +20,6 @@ var OptionsHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
         removeComments: true
     }
 });
-var UglifyJSPluginConfig = new UglifyJSPlugin({
-    compress: {
-        warnings: false,
-        pure_getters: true,
-        unsafe: false,
-        unsafe_comps: false,
-        screw_ie8: true
-    }
-})
 
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CopyWebpackPluginConfig = new CopyWebpackPlugin([
@@ -54,9 +44,9 @@ module.exports = {
         filename: '[name].js'
     },
     module: {
-    loaders: [
+    rules: [
        {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
     ]
   },
-  plugins: [NewTabHtmlWebpackPluginConfig, OptionsHtmlWebpackPluginConfig, CopyWebpackPluginConfig, UglifyJSPluginConfig]
+  plugins: [NewTabHtmlWebpackPluginConfig, OptionsHtmlWebpackPluginConfig, CopyWebpackPluginConfig]
 }
