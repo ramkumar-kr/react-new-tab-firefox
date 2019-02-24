@@ -14,10 +14,19 @@ browser.storage.local.get("style").then((css) => {
   }
 });
 
+var updateServer = function () {
+  var domainName = document.getElementById("serverDomain").value;
+  browser.storage.local.set({ faviconServerURL: domainName });
+  window.location.reload();
+}
+
 document.getElementById("styleForm").addEventListener("submit", updateStyle);
+
+document.getElementById("serverForm").addEventListener("submit", updateServer);
 
 async function renderBookmarkFolder(){
   var prefs = await browser.storage.local.get();
+  document.getElementById("serverDomain").value = prefs.faviconServerURL || "https://icon-fetcher-go.herokuapp.com";
   var bookmark = await browser.bookmarks.get(prefs.bookmarkId || "toolbar_____");
   const allBookmarks = await browser.bookmarks.search({});
   var allFolders = getAllFolders(allBookmarks);
