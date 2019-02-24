@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BookmarkFolder from "./components/bookmarkFolder";
+import browser from 'webextension-polyfill';
 
 
 var updateStyle = function () {
@@ -18,16 +19,16 @@ document.getElementById("styleForm").addEventListener("submit", updateStyle);
 
 async function renderBookmarkFolder(){
   var prefs = await browser.storage.local.get();
-  var bookmark = await browser.bookmarks.get(prefs.bookmarkId || "toolbar_____");
+  var bookmark = await browser.bookmarks.get(prefs.bookmarkId || "1");
   const allBookmarks = await browser.bookmarks.search({});
   var allFolders = getAllFolders(allBookmarks);
-
+  console.table(allBookmarks);
   ReactDOM.render(<BookmarkFolder bookmark={bookmark[0]} folders={allFolders}/>, document.getElementById('bookmark-folder'));
 }
 
 function getAllFolders(allBookmarks) {
   return allBookmarks.filter((bookmark) => {
-    return (bookmark.type === "folder");
+    return (bookmark.url === undefined);
   })
 }
 

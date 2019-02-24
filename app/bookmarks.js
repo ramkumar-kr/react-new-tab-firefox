@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import browser from 'webextension-polyfill'
 
 class ListView extends Component {
     render() {
@@ -71,7 +72,7 @@ function getAllBookmarks(bookmarkTree) {
 
 async function renderBookmarks() {
     const prefs = await browser.storage.local.get();
-    var bookmarkTree = await browser.bookmarks.getSubTree(prefs.bookmarkId || "toolbar_____");
+    var bookmarkTree = await browser.bookmarks.getSubTree(prefs.bookmarkId || "1");
     var flattened_bookmarks = getFlatBookmarks(bookmarkTree);
     if (prefs.style != undefined) {
         ReactDOM.render(prefs.style, document.getElementById('style'));

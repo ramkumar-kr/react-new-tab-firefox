@@ -28,6 +28,9 @@ var CopyWebpackPluginConfig = new CopyWebpackPlugin([
     },
     {
         from: __dirname + '/app/manifest.json', to: __dirname + '/dist/manifest.json'
+    },
+    {
+        from: __dirname + '/app/icon.png', to: __dirname + '/dist/icon.png'
     }
 ]);
 
