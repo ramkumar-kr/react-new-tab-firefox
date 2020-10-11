@@ -1,7 +1,8 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
 var NewTabHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: __dirname + '/app/index.html',
-    filename: __dirname + '/dist/index.html',
+    template: path.resolve(__dirname, 'app', 'index.html'),
+    filename: path.resolve(__dirname, 'dist', 'index.html'),
     inject: 'body',
     chunks: ['bookmarks'],
     minify: {
@@ -11,8 +12,8 @@ var NewTabHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 var OptionsHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: __dirname + '/app/options.html',
-    filename: __dirname + '/dist/options.html',
+    template: path.resolve(__dirname, 'app', 'options.html'),
+    filename: path.resolve(__dirname, 'dist', 'options.html'),
     inject: 'body',
     chunks: ['options'],
     minify: {
@@ -22,31 +23,34 @@ var OptionsHtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var CopyWebpackPluginConfig = new CopyWebpackPlugin([
-    {
-       from: __dirname + '/app/css', to: __dirname + '/dist/css' 
-    },
-    {
-        from: __dirname + '/app/manifest.json', to: __dirname + '/dist/manifest.json'
-    }
-]);
+var CopyWebpackPluginConfig = new CopyWebpackPlugin({
+    patterns: [
+        {
+            from: 'app/css', to: 'css' 
+        },
+        {
+            from: 'app/images', to: 'images' 
+        },
+        {
+            from: 'app/manifest.json', to: 'manifest.json'
+        }
+    ]});
+
 
 module.exports = {
-    node: {
-        fs: 'empty'
-    },
+    mode: 'production',
     entry: {
         bookmarks: "./app/bookmarks.js",
         options: "./app/options.js"
     },
     output: {
-        path: __dirname + '/dist',
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
     },
     module: {
-    rules: [
-       {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
-    ]
-  },
-  plugins: [NewTabHtmlWebpackPluginConfig, OptionsHtmlWebpackPluginConfig, CopyWebpackPluginConfig]
+        rules: [
+            {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
+        ]
+    },
+    plugins: [NewTabHtmlWebpackPluginConfig, OptionsHtmlWebpackPluginConfig, CopyWebpackPluginConfig]
 }
