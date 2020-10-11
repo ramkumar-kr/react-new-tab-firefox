@@ -49,6 +49,19 @@ a:visited {
   transform: scale(1.15);
 }
 
+button.folder{
+  border: none;
+  background: none;
+  max-width: 150px;
+  margin: auto;
+}
+
+#header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+}
+
 .text {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -59,13 +72,20 @@ a:visited {
 }
 
 a.customize {
-  display: inline-block;
   color: lightgray;
-  width: 100%;
-  grid-area: header;
   text-align: end;
+  float: right;
 }
 
 a.customize:hover {
+  color: #337ab7;
+}
+
+a.reset{
+  color: lightgray;
+  float: left;
+}
+
+a.reset:hover {
   color: #337ab7;
 }

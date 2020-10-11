@@ -16,6 +16,15 @@
 
   <hr />
 
+  <h2>Display sub folders</h2>
+    <!-- <form id="nestedFolderForm" action="#"> -->
+      <input type="radio" id="nested" name="showFlatOrNested" value=true onclick="updateNestedPref(this)"/>
+      <label for="nested">Yes. Click on subfolder to view its bookmarks</label>
+      <input type="radio" id="flat" name="showFlatOrNested" value=false onclick="debugger"/>
+      <label for="flat">No. Display all bookmarks in one page</label>
+    <!-- </form> -->
+  <hr/>
+
   <h2>Appearance</h2>
   <form id="styleForm" action="#">
     <textarea name="reactCss" id="reactCss" rows="28" cols="80" placeholder="Enter your Custom CSS here."></textarea>
@@ -27,6 +36,7 @@
   </p>
 
   <hr />
+
   <h2>Advanced</h2>
   <h3> Icon Server</h3>
   <p> To serve high quality icons for the bookmarks, I have deployed a <a href="https://github.com/mat/besticon">favicon

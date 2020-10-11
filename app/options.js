@@ -20,13 +20,28 @@ var updateServer = function () {
   window.location.reload();
 }
 
+async function updateNestedPref(event) {
+  await browser.storage.local.set({NestedView: event.target.value});
+  
+}
+
+document.getElementById("nested").addEventListener("click", updateNestedPref);
+document.getElementById("flat").addEventListener("click", updateNestedPref);
+
 document.getElementById("styleForm").addEventListener("submit", updateStyle);
 
 document.getElementById("serverForm").addEventListener("submit", updateServer);
 
+// document.getElementById("nestedFolderForm").addEventListener("submit", updateNestedPref);
+
 async function renderBookmarkFolder(){
   var prefs = await browser.storage.local.get();
   document.getElementById("serverDomain").value = prefs.faviconServerURL || "https://icon-fetcher-go.herokuapp.com";
+  if (prefs.NestedView && prefs.NestedView === "true") {
+    document.getElementById("nested").checked = true
+  } else {
+    document.getElementById("flat").checked = true
+  }
   var bookmark = await browser.bookmarks.get(prefs.bookmarkId || "toolbar_____");
   const allBookmarks = await browser.bookmarks.search({});
   var allFolders = getAllFolders(allBookmarks);

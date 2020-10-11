@@ -9,11 +9,16 @@
   "description":"A Fast and Light weight new tab",
   "permissions": [
     "bookmarks",
-    "storage"
+    "storage",
+    "cookies",
+    "contextualIdentities"
   ],
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true,
     "browser_style": true
-  }
+  },
+  "web_accessible_resources": [
+    "/images/folder.png"
+  ]
 }
