@@ -7,6 +7,7 @@ New tab extension built using react
 
 
 ## Steps to build locally
+* Use node version v12.16.3 and node version 6.14.4 on ubuntu 18
 * Install web-ext (`sudo npm install -g web-ext`)
 * Clone the repository (`git clone git@github.com:ramkumar-kr/react-new-tab-firefox.git`)
 * Run npm install in the react-new-tab-firefox directory to install all dependencies (`npm install`)
