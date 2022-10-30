@@ -2,6 +2,8 @@
 
 This is a place to find CSS templates for React new tab.
 
+Please feel free to add your template by creating a pull request to the `master` branch.
+
 -------
 
 ## List of predefined templates
@@ -13,40 +15,53 @@ This is a place to find CSS templates for React new tab.
 * [No Icon borders](#no-icon-borders)
 * [Background image](#background-image)
 
+-------
+
 ## Rounded thumbnails
 
 Changes the shape of icons to be a rounded square.
 
-#### Code
+### Code
+
 ```css
 .thumbnail{
 
-  border-radius: 10%;
+  border-radius: 20%;
 }
 ```
 
-#### Screenshot
-![](https://imgur.com/download/FY28xLD)
+### Screenshot
+
+![Rounded thumbnails screenshot](./screenshots/rounded_thumbnails_20.png)
+
+> **NOTE**: If you need a different shape, please refer to the `border-radius` css property. [Documentation is available here.](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
+
+-------
 
 ## Blank page
 
 Show a blank page as the new tab
 
-#### Code
+### Code
+
 ```css
 .container{
  display: none;
 }
 ```
 
-#### Screenshot
-![](https://imgur.com/download/KzzznEB)
+### Screenshot
+
+![Blank page](./screenshots/blank_page.png)
+
+-------
 
 ## Solarized light
 
 Solarized light theme
 
-#### Code
+### Code
+
 ```css
 body{
  background-color: #FDF6E3;
@@ -57,14 +72,18 @@ body{
 }
 ```
 
-#### Screenshot
-![](https://imgur.com/download/AQAic0E)
+### Screenshot
+
+![Solarized light theme](./screenshots/solarized-light-theme.png)
+
+-------
 
 ## Tomorrow Night
 
 Tomorrow Night theme
 
-#### Code
+### Code
+
 ```css
 body{
  background-color: #1D1F21;
@@ -79,28 +98,35 @@ body{
 }
 ```
 
-#### Screenshot
-![](https://imgur.com/download/iFWl13R)
+### Screenshot
+
+![Tomorrow night theme](./screenshots/tomorrow-night-theme.png)
+
+-------
 
 ## No Icon borders
 
 Do not have a border for the icons.
 
-#### Code
+### Code
+
 ```css
 .thumbnail{
  border-style: none;
 }
 ```
 
-#### Screenshot
-![](https://imgur.com/download/kuK9Q3L)
+### Screenshot
+![without icon borders](./screenshots/without_icon_borders.png)
+
+-------
 
 ## Background Image
 
 Load a random background image from unsplash.com
 
-#### Code
+### Code
+
 ```css
 body{
   background-image: url('https://source.unsplash.com/random/1920x1080');
@@ -109,8 +135,8 @@ body{
 }
 ```
 
-#### Screenshot
-![](https://imgur.com/download/HYYeqno)
+### Screenshot
+![New tab with background](./screenshots/new_tab_with_background.png)
 
 
 
