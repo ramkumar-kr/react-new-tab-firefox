@@ -58,17 +58,29 @@ button.folder{
 
 #header {
   display: grid;
+  width: 100%;
+}
+
+#header2 {
+  display: grid;
   grid-template-columns: 50% 50%;
   width: 100%;
 }
 
-.text {
+.text-common, .text, .text-left {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-top: 0;
-  text-align: center;
   font-family: Helvetica, sans-serif;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
 }
 
 a.customize {
@@ -88,4 +100,25 @@ a.reset{
 
 a.reset:hover {
   color: #337ab7;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: .5em .5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em;
 }

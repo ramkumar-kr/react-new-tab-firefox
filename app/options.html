@@ -3,50 +3,57 @@
 <meta http-equiv="Cache-control" content="public">
 
 <head>
-  <!--<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-  <title>Preferences - React new tab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style id="style"></style>
+  <title class="text">Preferences - React new tab</title>
 
 </head>
 
-<body>
-  <h1>Preferences - React new tab</h1>
+<body class="text left">
+  <h1 class="text">Preferences - React new tab</h1>
 
-  <h2>Bookmark Folder</h2>
-  <div id="bookmark-folder"></div>
+  <details>
+    <summary>Bookmark Folder</summary>
+    <div id="bookmark-folder"></div>
+  </details>
 
-  <hr />
-
-  <h2>Display sub folders</h2>
+  <details>
+    <summary>Display sub folders</summary>
     <!-- <form id="nestedFolderForm" action="#"> -->
-      <input type="radio" id="nested" name="showFlatOrNested" value=true onclick="updateNestedPref(this)"/>
-      <label for="nested">Yes. Click on subfolder to view its bookmarks</label>
-      <input type="radio" id="flat" name="showFlatOrNested" value=false onclick="debugger"/>
-      <label for="flat">No. Display all bookmarks in one page</label>
+    <input type="radio" id="nested" name="showFlatOrNested" value=true onclick="updateNestedPref(this)" />
+    <label for="nested">Yes. Click on subfolder to view its bookmarks</label>
+    <input type="radio" id="flat" name="showFlatOrNested" value=false onclick="debugger" />
+    <label for="flat">No. Display all bookmarks in one page</label>
     <!-- </form> -->
-  <hr/>
+  </details>
 
-  <h2>Appearance</h2>
-  <form id="styleForm" action="#">
-    <textarea name="reactCss" id="reactCss" rows="28" cols="80" placeholder="Enter your Custom CSS here."></textarea>
-  </form>
-  <button type="submit" form="styleForm" value="submit" class="default">Update</button>
-  <p>Please Note: This CSS will be added as a style tag in the head section of the document.
-    <br /> To use pre-defined templates, please visit this
-    <a href="https://github.com/ramkumar-kr/react-new-tab-firefox/blob/master/TEMPLATES.md" target="_blank">link</a>.
-  </p>
+  <details>
+    <summary>Appearance</summary>
+    <form id="styleForm" action="#">
+      <textarea name="reactCss" id="reactCss" rows="28" cols="80" placeholder="Enter your Custom CSS here."></textarea>
+    </form>
+    <button type="submit" form="styleForm" value="submit" class="default">Update</button>
+    <p>Please Note: This CSS will be added as a style tag in the head section of the document.
+      <br /> To use pre-defined templates, please visit this
+      <a href="https://github.com/ramkumar-kr/react-new-tab-firefox/blob/master/TEMPLATES.md" target="_blank">link</a>.
+    </p>
+  </details>
 
-  <hr />
 
-  <h2>Advanced</h2>
-  <h3> Icon Server</h3>
-  <p> To serve high quality icons for the bookmarks, I have deployed a <a href="https://github.com/mat/besticon">favicon
-      fetcher service</a> deployed on <a href="https://heroku.com">heroku</a>. In case you wish to host it yourself,
-    please follow the instructions provided in the <a href="https://github.com/mat/besticon">favicon fetcher service</a>
-    and replace the domain in the text box below.</p>
-  <form id="serverForm" action="#">
-    <input type="text" id="serverDomain" size="100"/>
-  </form>
-  <button type="submit" form="serverForm" value="submit" class="default">Update</button>
+  <details>
+    <summary>Advanced</summary>
+    <h3> Icon Server</h3>
+    <p> To serve high quality icons for the bookmarks, I have deployed a <a
+        href="https://github.com/mat/besticon">favicon
+        fetcher service</a> deployed on <a href="https://heroku.com">heroku</a>. In case you wish to host it yourself,
+      please follow the instructions provided in the <a href="https://github.com/mat/besticon">favicon fetcher
+        service</a>
+      and replace the domain in the text box below.</p>
+    <form id="serverForm" action="#">
+      <input type="text" id="serverDomain" size="100" />
+    </form>
+    <button type="submit" form="serverForm" value="submit" class="default">Update</button>
+  </details>
 </body>
 
 </html>
