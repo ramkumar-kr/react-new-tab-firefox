@@ -16,8 +16,13 @@ class ListBookmarks extends Component {
 class OnlyBookmarks extends Component {
     render() {
         return (
-            <div class="grid container">
-                <ListBookmarks bookmarks={this.props.bookmarks}/>
+            <div>
+                <div id="header">
+                    <a href="options.html" class="customize" id="customizeLink">Customize this page</a>
+                </div>
+                <div class="grid container">
+                    <ListBookmarks bookmarks={this.props.bookmarks}/>
+                </div>
             </div>
         );
     }
@@ -56,11 +61,24 @@ class ListView extends Component {
     }
 
     render() {
-        const items = this.getSingleLevelItems(this.state.bookmarkTree, this.props.faviconServerURL)
+        const items = this.getSingleLevelItems(this.state.bookmarkTree, this.props.faviconServerURL);
+        const showResetLink = !(this.state.bookmarkTree == this.props.bookmarkTree);
+        var header = <div id="header">
+            <a href="options.html" class="customize" id="customizeLink">Customize this page</a>
+        </div>
+        if(showResetLink) {
+            header = header = <div id="header2">
+            <a href="" class="reset" id="resetLink">Go back to main folder</a>
+            <a href="options.html" class="customize" id="customizeLink">Customize this page</a>
+        </div>;
+        }
         return (
-            <div class="grid container">
-                <ListFolders folders = {items.folders} onClick={this.updateTree}/>
-                <ListBookmarks bookmarks={items.bookmarks}/>
+            <div>
+                {header}
+                <div class="grid container">
+                    <ListFolders folders = {items.folders} onClick={this.updateTree}/>
+                    <ListBookmarks bookmarks={items.bookmarks}/>
+                </div>
             </div>
         );
     }
@@ -85,7 +103,7 @@ class Bookmark extends Component {
             <a href={this.props.url} title={this.props.title}>
 
                 <Favicon url={this.props.url} faviconURL={this.props.faviconURL}/>
-                <p className='text'>{this.props.title}</p>
+                <p className='text center'>{this.props.title}</p>
             </a>
         );
     }
@@ -96,7 +114,7 @@ class Folder extends Component {
         return (
             <button class="folder" title={this.props.title} id={this.props.id} onClick={()=>this.props.onClick(this.props.children)}>
                 <Favicon faviconURL={this.props.faviconURL}/>
-                <p className='text'>{this.props.title}</p>
+                <p className='text center'>{this.props.title}</p>
             </button>
         )
     }

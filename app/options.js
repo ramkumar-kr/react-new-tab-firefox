@@ -17,7 +17,7 @@ class BookmarkFolder extends Component {
       });
       return(
           <div>
-              <h3>Selected Bookmark Folder </h3> <em>{this.props.bookmark.title}</em>
+              <b>Current selected Bookmark Folder: </b>  <em>{this.props.bookmark.title}</em>
               <h3> Select a new Bookmark Folder </h3>
               <select id="newBookmark" >
                   {options}
@@ -74,6 +74,9 @@ async function renderBookmarkFolder(){
   const allBookmarks = await browser.bookmarks.search({});
   var allFolders = getAllFolders(allBookmarks);
 
+  if (prefs.style != undefined) {
+    ReactDOM.render(prefs.style, document.getElementById('style'));
+  }
   ReactDOM.render(<BookmarkFolder bookmark={bookmark[0]} folders={allFolders}/>, document.getElementById('bookmark-folder'));
 }
 
